@@ -63,7 +63,7 @@
                        
                         }
                       }
-                ²       //conversion de la variable commande en string pour affichage 
+                     //conversion de la variable commande en string pour affichage 
                        $commandes=implode("",$commande);
                       return "<span> Nos type de cuisson en fonction des viandes sont les suivantes :</span>".$commandes.".";
                     }
