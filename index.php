@@ -208,7 +208,7 @@
                       $str=$phrase[$indexPhrase];
                      //on calcule la taille de la valeur
                       $lenght=strlen($str);
-                      //on convertit la variable taille en tableau
+                      //on ajoute la variable lenght dans un  tableau nomé taille
                       $taille[]=$lenght;
                     }
                     //on définit la taille (int)la plus longue
