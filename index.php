@@ -56,11 +56,14 @@
               function cookMeat($viandes,$cuisson){
                     for($indexViandes=0;$indexViandes<count($viandes);$indexViandes++){
                       for($indexCuisson=0;$indexCuisson<count($viandes);$indexCuisson++){
+                       //definition d'une variable string reprenant la variable viande et cuisson a chq tour de boucle
                         $typeCook=$viandes[$indexViandes]." ".$cuisson[$indexCuisson]." , ";
+                        // reponse à la problématique un array comprenant l'ensemble de la variable string précédente
                         $commande[]=$typeCook;
                        
                         }
                       }
+                ²       //conversion de la variable commande en string pour affichage 
                        $commandes=implode("",$commande);
                       return "<span> Nos type de cuisson en fonction des viandes sont les suivantes :</span>".$commandes.".";
                     }
@@ -88,10 +91,13 @@
                 <?php 
                  $genres ="horreur fantastique action western thriller comédie drame romance historique";
                  function film($genres){
+                   //définition d'une variable array pour répondre à la problématique: un tableau reprenant les genres de films
                    $genresFilm=explode(" ",$genres);
+                   // on définit une variable string vide
                    $film="";
                    for ($indexFilm=0;$indexFilm<count($genresFilm);$indexFilm++){
-                      $film.=$genresFilm[$indexFilm]." ";
+                     //on incrémente la variable string à chq tour de boucle
+                     $film.=$genresFilm[$indexFilm]." ";
                       }
                      return $film;
                     }
@@ -122,9 +128,12 @@
               $fruits = ["orange", "banane", "pomme", "fraise", "tomate", "framboise", "noix de coco", "ananas"]; 
               function fruits($fruits){
                     for($indexFruits=0;$indexFruits<count($fruits);$indexFruits++){
-                           $fruit[]=$fruits[$indexFruits];
+                         //on définit un tableau avec les valeurs de la var fruit
+                        $fruit[]=$fruits[$indexFruits];
                         }
+                        // on répond à la problématique: une variable avec les 2 derniers fruits
                         $meilleurFruit[]=$fruit[count($fruit)-1]." ".$fruit[count($fruit)-2];
+                        // on convertit la variable en string pour affichage
                         $meilleurFruits=implode(" ",$meilleurFruit);
                         return $meilleurFruits;
                       }
@@ -154,14 +163,17 @@
                   $prenoms=["Harry", "Hilary", "Harrington", "Hagrid", "Holmes"];
                   
                   function prenom($prenom){
+                    //on calcule une moitié
                     $taille=intdiv(count($prenom),2);
-                   
+                   //on supprime un élément du tableau en utilisant la moitié calculée pcdmt
                     array_splice($prenom,$taille,1);
                    
                     for ($indexPrenom=0;$indexPrenom<count($prenom);$indexPrenom++){
+                     //on parcourt le tableau réduit dans un nouveau tableau
                       $Prenoms[]=$prenom[$indexPrenom]." ";
                                   
                       }
+                    // on convertit le tableaau en string pour affichage
                       $name=implode(",",$Prenoms);
                       return $name;
                     }
@@ -191,12 +203,19 @@
                   function lenght($phrase){
                    
                     for($indexPhrase=0;$indexPhrase<count($phrase);$indexPhrase++){
+                      //a chaque tour de boucle 
+                      //on lit une valeur:une string
                       $str=$phrase[$indexPhrase];
+                     //on calcule la taille de la valeur
                       $lenght=strlen($str);
+                      //on convertit la variable taille en tableau
                       $taille[]=$lenght;
                     }
+                    //on définit la taille (int)la plus longue
                     $tailleMax=max($taille);
+                    //on recherche la clé associée à cette taille
                     $key=array_search($tailleMax,$taille);
+                    //cette clé détermine l'index de la phrase la plus longue
                     $phraseLong=$phrase[$key];
                   return $phraseLong."avec ".$tailleMax." ";                 
 
@@ -226,7 +245,8 @@
                 $portables = ["0612459623", "0645896235", "0678145263", "0647895263", "0655069912"];
                 
                 function changeNumber($portable){
-                  
+                  //on utilise une regex qui determine la place du 0 en début de string
+                  // on remplace l'éléments trouvé par +33
                   $portable=preg_replace('#(^0)#',' (+33) $1',$portable);
                   $number=implode(" , ",$portable);
                 return $number;
@@ -256,7 +276,9 @@
                 <?php
                  $sadisme=["haha", "hehe", "j'aime mon travail", "une vraie joie", "je changerai pour rien au monde", "hhhhhhhh", "have fun !"];
                 function nbOccurrence($sadisme){
+                  //on transforme le tableu en une seule chaine
                   $str=implode("," ,$sadisme);
+                  //on compte le nb de h dans la chaine
                   $occurence=substr_count($str,"h");
                   
                 return $occurence;
